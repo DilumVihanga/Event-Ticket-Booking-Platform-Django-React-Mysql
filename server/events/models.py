@@ -20,19 +20,26 @@ class Organizer(models.Model):
     organizerEMAIL = models.EmailField(max_length=200)
     organizerREGNO = models.CharField(max_length=200)
     organizerPHONE = models.CharField(max_length=20)
-    organizerPASSWORD = models.CharField(max_length=200)
+    organizerPASSWORD = models.CharField(max_length=200, null=True, blank=False)
+    organizerCONPASSWORD = models.CharField(max_length=200, null=True, blank=False)
     organizerNIC = models.CharField(max_length=20)
+    organizerIMAGE = models.ImageField(upload_to='uploads/images', null=True, blank=False)
+    addressLINE1 = models.CharField(max_length=200, default='')
+    addressLINE2 = models.CharField(max_length=200, default='')
+    organizerCITY = models.CharField(max_length=200, default='')
+    organizerAGREED = models.BooleanField(default=False)
 
     def __str__(self):
         return self.organizerNAME
 
 
+
 class User(models.Model):
     userID = models.AutoField(primary_key=True)
-    adminID = models.ForeignKey('Admin', on_delete=models.CASCADE)
+    """ adminID = models.ForeignKey('Admin', on_delete=models.CASCADE) """
     userNAME = models.CharField(max_length=200)
     userEMAIL = models.EmailField(max_length=200)
-    USERPASSWORD = models.CharField(max_length=200)
+    userPASSWORD = models.CharField(max_length=200)
     userPHONE = models.CharField(max_length=20)
     userNIC = models.CharField(max_length=20)
 
