@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -15,7 +16,7 @@ class Admin(models.Model):
 
 class Organizer(models.Model):
     organizerID = models.AutoField(primary_key=True)
-    adminID = models.ForeignKey('Admin', on_delete=models.CASCADE)
+    """ adminID = models.ForeignKey('Admin', on_delete=models.CASCADE) """
     organizerNAME = models.CharField(max_length=200)
     organizerEMAIL = models.EmailField(max_length=200)
     organizerREGNO = models.CharField(max_length=200)
